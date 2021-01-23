@@ -1,6 +1,5 @@
+from apidollar import blue, official
 from flask import Flask, request
-from dollarapi import blue, official
-
 app = Flask(__name__)
 
 class dollar():
