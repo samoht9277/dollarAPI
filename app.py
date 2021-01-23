@@ -1,4 +1,4 @@
-from apidollar import blue, official
+from dollarapi import blue, official
 from flask import Flask, request
 app = Flask(__name__)
 
