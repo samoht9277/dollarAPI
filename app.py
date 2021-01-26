@@ -20,6 +20,5 @@ def getOfficial():
 @app.route('/blue')
 def getBlue():
     return dollar.valueOf(blue())
-    
-if __name__ == '__name__':
-    app.run()
+ 
+app.run()

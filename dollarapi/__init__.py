@@ -1,6 +1,6 @@
 '''
 dollarAPI
-========
+=========
 
 Get the value of a USD in Argentine Pesos.
 '''
