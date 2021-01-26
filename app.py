@@ -21,4 +21,5 @@ def getOfficial():
 def getBlue():
     return dollar.valueOf(blue())
  
-app.run()
+if __name__ == '__name__':	app.run() 
+    app.run()
