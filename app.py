@@ -5,8 +5,8 @@ app = Flask(__name__)
 class dollar():
     def valueOf(currency): # Polimorphism :D
         dollarJSON = {}
-        dollarJSON['compra'] = currency.getDollarValue(0)
-        dollarJSON['venta'] = currency.getDollarValue(1)
+        dollarJSON['compra'] = currency.getDollarValue('compra')
+        dollarJSON['venta'] = currency.getDollarValue('venta')
         return dollarJSON
 
 @app.route('/')
