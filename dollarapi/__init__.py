@@ -19,6 +19,7 @@ class dollarAPI():
 
         Pass a 0 to the method parameter to get the purchasing value, pass a 1 to get the selling value.
         '''
+        print('get', method)
         value = self.soup.find('div', {"class": "tile is-parent is-8"})
         value = self.soup.select(".value")[methodJSON[method]].text
         return float(value.strip('$'))

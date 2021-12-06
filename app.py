@@ -1,6 +1,15 @@
 from dollarapi import blue, official
 from flask import Flask, request
+from flask_caching import Cache 
+
 app = Flask(__name__)
+
+CONFIG = {
+    "CACHE_TYPE": "SimpleCache"
+}
+
+app.config.from_mapping(CONFIG)
+cache = Cache(app)
 
 class dollar():
     def valueOf(currency): # Polimorphism :D
@@ -14,10 +23,12 @@ def main():
     return 'Hey! Please make a GET request to /official or /blue'
 
 @app.route('/official')
+@cache.cached(timeout=300)
 def getOfficial():
     return dollar.valueOf(official())
 
 @app.route('/blue')
+@cache.cached(timeout=300)
 def getBlue():
     return dollar.valueOf(blue())
  
