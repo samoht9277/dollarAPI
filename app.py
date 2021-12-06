@@ -33,4 +33,4 @@ def getBlue():
     return dollar.valueOf(blue())
  
 if __name__ == '__name__':
-    app.run()
+    app.run("0.0.0.0")
