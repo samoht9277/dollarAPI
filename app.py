@@ -1,3 +1,4 @@
+import ssl
 from dollarapi import blue, official
 from flask import Flask
 from flask_caching import Cache 
@@ -33,4 +34,4 @@ def getBlue():
     return dollar.valueOf(blue())
  
 if __name__ == '__main__':
-    app.run()
+    app.run("0.0.0.0")
