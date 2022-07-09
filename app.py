@@ -1,5 +1,5 @@
 from dollarapi import blue, official
-from flask import Flask, request
+from flask import Flask
 from flask_caching import Cache 
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ app.config.from_mapping(CONFIG)
 cache = Cache(app)
 
 class dollar():
-    def valueOf(currency): # Polimorphism :D
+    def valueOf(currency):
         dollarJSON = {}
         dollarJSON['compra'] = currency.getDollarValue('compra')
         dollarJSON['venta'] = currency.getDollarValue('venta')
@@ -32,5 +32,5 @@ def getOfficial():
 def getBlue():
     return dollar.valueOf(blue())
  
-if __name__ == '__name__':
+if __name__ == '__main__':
     app.run("0.0.0.0")
