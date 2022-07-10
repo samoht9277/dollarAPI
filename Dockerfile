@@ -8,4 +8,4 @@ RUN apt-get update && apt-get install -y python3-pip
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "app.py"]
+CMD gunicorn -c gunicorn.conf.py app:app
