@@ -1,4 +1,4 @@
 bind = "0.0.0.0:5000"
 workers = 4
-certfile = './certs/certificate.crt'
-keyfile = './certs/private.key'
+certfile = '/docker/certs/certificate.crt'
+keyfile = '/docker/certs/private.key'

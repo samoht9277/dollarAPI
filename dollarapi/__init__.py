@@ -9,19 +9,16 @@ import requests
 from bs4 import BeautifulSoup
 
 class dollarAPI():
-    def getDollarValue(self, method):
-        methodJSON = {
-            'compra': 0,
-            'venta': 1
-        }
+    def getDollarValue(self):
         '''
         Gets Dollar Value
 
         Pass a 0 to the method parameter to get the purchasing value, pass a 1 to get the selling value.
         '''
-        value = self.soup.find('div', {"class": "tile is-parent is-8"})
-        value = self.soup.select(".value")[methodJSON[method]].text
-        return float(value.strip('$'))
+        purchaseValue = int(float(self.soup.select(".value")[0].text.strip('$')))
+        sellingValue = int(float(self.soup.select(".value")[1].text.strip('$')))
+        return {'compra': purchaseValue, 'venta': sellingValue}
+
 
 class blue(dollarAPI):
     '''
