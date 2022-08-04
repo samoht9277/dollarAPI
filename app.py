@@ -1,5 +1,13 @@
-from dollarapi import blue, official
 from flask import Flask
+from requests import get
+from bs4 import BeautifulSoup
+
+def getDollarValue(url):
+    req = get(url).text
+    soup = BeautifulSoup(req, 'lxml')
+    purchaseValue = int(float(soup.select(".value")[0].text.strip('$')))
+    sellingValue = int(float(soup.select(".value")[1].text.strip('$')))
+    return {'compra': purchaseValue, 'venta': sellingValue}
 
 app = Flask(__name__)
 
@@ -9,8 +17,8 @@ def main():
 
 @app.route('/official')
 def getOfficial():
-    return official().getDollarValue()
+    return getDollarValue("https://www.dolarhoy.com/cotizaciondolaroficial")
 
 @app.route('/blue')
 def getBlue():
-    return blue().getDollarValue()
+    return getDollarValue("https://www.dolarhoy.com/cotizaciondolarblue")
