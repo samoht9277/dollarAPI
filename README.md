@@ -6,6 +6,6 @@ Get the value of a USD in Argentine Pesos.
 
 Endpoints return a JSON object with both purchasing and selling values.
 
-- `/blue` 
+- `/blue` -> gives both selling/purchasing value.
 
-- `/official` 
+- `/official` -> gives both selling/purchasing value.
